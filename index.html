@@ -29,6 +29,8 @@
 
     position: relative;
     text-align: center;
+
+    cursor: pointer; /* shows clickable */
   }
 
   .content {
@@ -74,7 +76,7 @@
     font-size: 10px;
     cursor: pointer;
 
-    font-family: "Times New Roman", serif; /* added */
+    font-family: "Times New Roman", serif;
   }
 
   button:hover {
@@ -85,14 +87,17 @@
 
 <body>
 
-<div class="box">
+<div class="box" onclick="setQuote(true)">
 
   <div class="content">
     <div id="quote" class="quote"></div>
     <div id="author" class="author"></div>
   </div>
 
-  <button onclick="setQuote(true)">reset</button>
+  <button onclick="event.stopPropagation(); setQuote(true);">
+    reset
+  </button>
+
 </div>
 
 <script>
